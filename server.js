@@ -4,9 +4,12 @@ require('dotenv').config();
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const app = express();
-const PORT = 3000;
 
-app.use(cors()); // Allows the frontend to call this API
+app.use(cors({
+    origin: process.env.DOMAIN || "*", // allows the frontend to access this API
+    methods: ["POST"],
+    allowedHeaders: ["Content-Type"],
+})); // Allows the frontend to call this API
 app.use(express.json());
 
 const genAI = new GoogleGenerativeAI(process.env.ApiKey);
@@ -25,6 +28,4 @@ app.post("/generate", async (req, res) => {
     }
 });
 
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
+module.exports = app;
