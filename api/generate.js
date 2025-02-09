@@ -6,7 +6,7 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 const app = express();
 
 app.use(cors({
-    origin: process.env.DOMAIN || "*", // allows the frontend to access this API
+    origin: "*", // allows the frontend to access this API
     methods: ["POST"],
     allowedHeaders: ["Content-Type"],
 })); // Allows the frontend to call this API
