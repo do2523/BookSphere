@@ -11,7 +11,7 @@ async function fetchGeminiResponse() {
         advanced reading comprehension. Avoid books with dark or intense themes, meaning no thrillers, mysteries, or horror 
         elements. The books should focus on positive, exciting, or inspiring adventure narratives rather than grim or unsettling 
         stories.  The output should strictly contain only the JSON response with the requested information, without any additional`
-        const response = await fetch("http://localhost:3000/generate", {
+        const response = await fetch("https://book-sphere-dun.vercel.app/generate", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
